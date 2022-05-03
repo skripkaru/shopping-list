@@ -3,10 +3,11 @@ import { CloseBtnStyled } from './styles'
 
 interface CloseBtnProps {
   onClick: () => void
+  children: React.ReactNode
 }
 
 export const CloseBtn = (props: CloseBtnProps) => {
-  const { onClick } = props
+  const { onClick, children } = props
 
-  return <CloseBtnStyled onClick={onClick}>&times;</CloseBtnStyled>
+  return <CloseBtnStyled onClick={onClick}>{children}</CloseBtnStyled>
 }

@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 export const FormStyled = styled.form`
+  display: flex;
   margin-bottom: 2rem;
 
   input {
-    margin-bottom: 1rem;
+    margin-right: 1rem;
   }
 
   button {

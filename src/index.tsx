@@ -20,9 +20,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #FFFFFF;
+    background-color:#28293D;
   }
 
   ul {

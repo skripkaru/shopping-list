@@ -17,7 +17,7 @@ export const ModalContainer = styled.div`
   transform: translate(-50%, -50%);
   min-width: 300px;
   padding: 2rem 1rem;
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: #fff;
 
   @media (min-width: 576px) {

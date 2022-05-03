@@ -4,11 +4,14 @@ export const InputStyled = styled.input`
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  color: #ffffff;
+  border: 2px solid #6E7198;
+  border-radius: 12px;
+  background-color: transparent;
 
   &::placeholder {
-    transition: opacity 0.3s;
+    color: rgba(255, 255, 255, 0.1);
+    transition: opacity 0.3s ease-in-out;
   }
 
   &:focus::placeholder {
