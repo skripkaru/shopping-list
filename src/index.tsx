@@ -9,6 +9,24 @@ import { store } from './store'
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
+  :root {
+    --black: #000000;
+    --white: #ffffff;
+    --gray-900: hsl(0, 0%, 10%);
+    --gray-800: hsl(0, 0%, 20%);
+    --gray-700: hsl(0, 0%, 30%);
+    --gray-600: hsl(0, 0%, 40%);
+    --gray-500: hsl(0, 0%, 50%);
+    --gray-400: hsl(0, 0%, 60%);
+    --gray-300: hsl(0, 0%, 70%);
+    --gray-200: hsl(0, 0%, 80%);
+    --gray-100: hsl(0, 0%, 90%);
+
+
+    --radius: 10px;
+    --transition: 0.3s ease-in-out;
+  }
+
   html {
     box-sizing: border-box;
   }
@@ -24,8 +42,6 @@ export const GlobalStyle = createGlobalStyle`
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-weight: 400;
     font-size: 1rem;
-    color: #FFFFFF;
-    background-color:#28293D;
   }
 
   ul {

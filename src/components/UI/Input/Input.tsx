@@ -5,10 +5,11 @@ interface InputProps {
   value?: string
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
+  autoFocus?: boolean
 }
 
 export const Input = (props: InputProps) => {
-  const { placeholder, onChange, value } = props
+  const { placeholder, onChange, value, autoFocus } = props
 
   return (
     <InputStyled
@@ -17,6 +18,7 @@ export const Input = (props: InputProps) => {
       onChange={onChange}
       className="input"
       placeholder={placeholder}
+      autoFocus={autoFocus}
     />
   )
 }

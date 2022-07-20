@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": "47821444-f87c-4ae9-b20e-8bf978d94fcb",
+      "title": "Bread",
+      "completed": false
+    },
+    {
+      "id": "6fcfbc5c-5016-41c2-b1a8-9d0a048c29f2",
+      "title": "Butter",
+      "completed": false
+    },
+    {
+      "id": "11fcec6b-240a-4c3d-a8c5-fa1e84f997bb",
+      "title": "Beacon",
+      "completed": false
+    }
+  ]
+}

@@ -9,7 +9,7 @@ export const ProductList = () => {
   return (
     <ul>
       {filteredProducts.length !== 0 ? (
-        filteredProducts.map((product) => (
+        filteredProducts.map((product: any) => (
           <ProductItem id={product.id} key={product.id} checked={product.completed}>
             {product.title.charAt(0).toUpperCase() + product.title.slice(1)}
           </ProductItem>

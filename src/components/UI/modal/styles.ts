@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { CloseBtnStyled } from '../closeBtn/styles'
 
 export const ModalStyled = styled.div`
   position: fixed;
@@ -18,9 +19,22 @@ export const ModalContainer = styled.div`
   min-width: 300px;
   padding: 2rem 1rem;
   border-radius: 12px;
-  background-color: #fff;
+  background-color: var(--white);
 
   @media (min-width: 576px) {
-    min-width: 450px;
+    min-width: 500px;
+    padding: 3rem 2rem;
+  }
+`
+
+export const ModalCloseBtn = styled(CloseBtnStyled)`
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: var(--gray-700);
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 `

@@ -1,22 +1,40 @@
 import React, { ChangeEvent } from 'react'
-import { Select } from '../UI'
+import { Button, Input, Modal, Select } from '../UI'
 import { Form } from '../form/Form'
-import { HeaderStyled } from './styles'
+import { HeaderControlPanel, HeaderStyled } from './styles'
 import { useActions } from '../../hooks/useActions'
 import { filter, FilterTypes } from '../../store/product/types'
+import { ButtonVariant } from '../UI/button/Button'
+import { openModal } from '../../store/modal/actions'
+import { useDispatch } from 'react-redux'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 export const Header = () => {
   const { filterProduct } = useActions()
+  const dispatch = useDispatch()
+  const { isOpen } = useTypedSelector((state) => state.modal)
 
   const handleSelectChange = (e: ChangeEvent<HTMLOptionElement>) => {
     filterProduct(e.target.value as FilterTypes)
   }
 
+  const handleClick = () => {
+    dispatch(openModal(isOpen))
+  }
+
   return (
     <HeaderStyled>
       <h1>Список покупок</h1>
-      <Form />
-      <Select list={filter} onChange={handleSelectChange} />
+      <Input placeholder="Поиск..." />
+      <Modal isOpen={isOpen}>
+        <Form />
+      </Modal>
+      <HeaderControlPanel>
+        <Button variant={ButtonVariant.primary} onClick={handleClick}>
+          Добавить
+        </Button>
+        <Select list={filter} onChange={handleSelectChange} />
+      </HeaderControlPanel>
     </HeaderStyled>
   )
 }

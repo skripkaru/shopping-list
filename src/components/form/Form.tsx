@@ -1,11 +1,16 @@
 import React, { ChangeEvent, useState } from 'react'
 import { Button, Input } from '../UI'
-import { FormStyled } from './styles'
+import { FormStyled, FormTitle } from './styles'
 import { useActions } from '../../hooks/useActions'
 import { ButtonVariant } from '../UI/button/Button'
+import { closeModal } from '../../store/modal/actions'
+import { useDispatch } from 'react-redux'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 export const Form = () => {
   const [productName, setProductName] = useState<string>('')
+  const dispatch = useDispatch()
+  const { isOpen } = useTypedSelector((state) => state.modal)
 
   const { createProduct } = useActions()
 
@@ -16,8 +21,13 @@ export const Form = () => {
       title: productName,
       completed: false,
     }
-    newProduct.title && createProduct(newProduct)
+
+    if (newProduct.title) {
+      createProduct(newProduct)
+    }
+
     setProductName('')
+    dispatch(closeModal(isOpen))
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +36,8 @@ export const Form = () => {
 
   return (
     <FormStyled onSubmit={handleSubmit}>
-      <Input placeholder="Название товара" onChange={handleChange} value={productName} />
+      <FormTitle>Добавить покупку</FormTitle>
+      <Input placeholder="Название товара" onChange={handleChange} value={productName} autoFocus />
       <Button onClick={() => null} variant={ButtonVariant.primary}>
         Добавить
       </Button>

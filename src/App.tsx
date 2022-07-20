@@ -7,13 +7,14 @@ import { useActions } from './hooks/useActions'
 
 const App = () => {
   const loading = useTypedSelector((state) => state.product.loading)
-  const { fetchProducts } = useActions()
 
-  console.log('loading', loading)
+  const { fetchProducts } = useActions()
 
   useEffect(() => {
     fetchProducts()
   }, [])
+
+  console.log(fetchProducts)
 
   return (
     <Container>

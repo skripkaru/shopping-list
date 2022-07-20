@@ -6,7 +6,7 @@ export const ProductItemStyled = styled.li`
   grid-gap: 0.5rem;
   align-items: center;
   padding: 1rem;
-  background: #3E405B;
+  background-color: var(--gray-100);
   border-radius: 12px;
 
   &:not(:last-child) {

@@ -1,15 +1,17 @@
 import { Filter, ProductAction, ProductActionTypes, ProductState } from './types'
+import { getStorageValue } from '../../hooks/useLocalStorage'
+import { saveProductToLS } from './logic'
 
 const initialState: ProductState = {
   id: null,
   error: null,
   loading: false,
   product: null,
-  products: [],
+  products: getStorageValue('products', []),
   filterType: Filter.ALL,
 }
 
-export const reducers = (state = initialState, action: ProductAction): ProductState => {
+export const productReducers = (state = initialState, action: ProductAction): ProductState => {
   switch (action.type) {
     case ProductActionTypes.FETCH_PRODUCTS:
       return {
@@ -29,21 +31,30 @@ export const reducers = (state = initialState, action: ProductAction): ProductSt
         error: action.payload,
       }
     case ProductActionTypes.CREATE_PRODUCT:
+      const products = [...state.products, action.payload]
+      saveProductToLS(products)
+
       return {
         ...state,
-        products: [...state.products, action.payload],
+        products,
       }
     case ProductActionTypes.DELETE_PRODUCT:
+      const deletedProducts = state.products.filter((product) => product.id !== action.payload)
+      saveProductToLS(deletedProducts)
+
       return {
         ...state,
-        products: state.products.filter((product) => product.id !== action.payload),
+        products: deletedProducts,
       }
     case ProductActionTypes.COMPLETE_PRODUCT:
+      const completedProducts = state.products.map((product) =>
+        product.id === action.payload ? { ...product, completed: !product.completed } : product
+      )
+      saveProductToLS(completedProducts)
+
       return {
         ...state,
-        products: state.products.map((product) =>
-          product.id === action.payload ? { ...product, completed: !product.completed } : product
-        ),
+        products: completedProducts,
       }
     case ProductActionTypes.FILTER_PRODUCTS:
       return {
