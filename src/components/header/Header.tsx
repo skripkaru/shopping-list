@@ -24,14 +24,14 @@ export const Header = () => {
 
   return (
     <HeaderStyled>
-      <h1>Список покупок</h1>
-      <Input placeholder="Поиск..." />
+      <h1>Shopping list</h1>
+      <Input placeholder="Search..." />
       <Modal isOpen={isOpen}>
         <Form />
       </Modal>
       <HeaderControlPanel>
         <Button variant={ButtonVariant.primary} onClick={handleClick}>
-          Добавить
+          Add product
         </Button>
         <Select list={filter} onChange={handleSelectChange} />
       </HeaderControlPanel>

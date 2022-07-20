@@ -15,7 +15,7 @@ export const ProductList = () => {
           </ProductItem>
         ))
       ) : (
-        <h2>Список пуст</h2>
+        <h2>The list is empty</h2>
       )}
     </ul>
   )

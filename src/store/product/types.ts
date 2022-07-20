@@ -20,9 +20,9 @@ export enum Filter {
 }
 
 export const filter = [
-  { value: Filter.ALL, label: 'Все' },
-  { value: Filter.ACTIVE, label: 'Активные' },
-  { value: Filter.COMPLETED, label: 'Завершенные' },
+  { value: Filter.ALL, label: 'All' },
+  { value: Filter.ACTIVE, label: 'Active' },
+  { value: Filter.COMPLETED, label: 'Completed' },
 ]
 
 export type FilterTypes = Filter.ALL | Filter.ACTIVE | Filter.COMPLETED

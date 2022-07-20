@@ -36,10 +36,10 @@ export const Form = () => {
 
   return (
     <FormStyled onSubmit={handleSubmit}>
-      <FormTitle>Добавить покупку</FormTitle>
-      <Input placeholder="Название товара" onChange={handleChange} value={productName} autoFocus />
+      <FormTitle>Create product</FormTitle>
+      <Input placeholder="Product name" onChange={handleChange} value={productName} autoFocus />
       <Button onClick={() => null} variant={ButtonVariant.primary}>
-        Добавить
+        Add product
       </Button>
     </FormStyled>
   )
